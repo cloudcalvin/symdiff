@@ -226,9 +226,9 @@ test_script:
   #- bin\symdiff_tcl.bat %APPVEYOR_BUILD_FOLDER%\testing\arrhenius_tcl.tcl 
   #- bin\symdiff.bat %APPVEYOR_BUILD_FOLDER%\examples\arrhenius.py
   #- bin\symdiff_py3.bat %APPVEYOR_BUILD_FOLDER%\examples\arrhenius.py
-  - cd %APPVEYOR_BUILD_FOLDER%\win64
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-  - ctest
+  - IF "%PLATFORM%"=="x64" cd win64 && ctest
+  - IF "%PLATFORM%"=="x86" cd win32 && ctest
 
 # to disable automatic tests 
 #test: off
