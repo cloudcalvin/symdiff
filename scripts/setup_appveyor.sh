@@ -10,6 +10,9 @@ SYMDIFF_CONFIG="appveyor"
 
 /usr/bin/mkdir -p win64
 (cd win64; "$CMAKE" -G "Visual Studio 15 2017 Win64" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON -DPYTHON3=ON ..)
+
+/usr/bin/mkdir -p win32
+(cd win32; "$CMAKE" -G "Visual Studio 15 2017" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON -DPYTHON3=ON ..)
 #(cd win64; "$CMAKE" -G "Visual Studio 14 Win64" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON ..)
 
 libpath=`/usr/bin/cygpath -w $PWD/lib`
