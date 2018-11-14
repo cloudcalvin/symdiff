@@ -6,13 +6,13 @@ CMAKE=/cygdrive/C/Program\ Files\ \(x86\)/CMake/bin/cmake.exe
 SYMDIFF_CONFIG="appveyor"
 
 if [ "$1" = x86 ]; then
-GENERATOR='"Visual Studio 15 2017"'
+GENERATOR="Visual Studio 15 2017"
 BUILDDIR="win32"
 python2base='c:\Miniconda'
 python3base='c:\Miniconda36'
 fi
 if [ "$1" = x64 ]; then
-GENERATOR='"Visual Studio 15 2017 Win64"'
+GENERATOR="Visual Studio 15 2017 Win64"
 BUILDDIR="win64"
 python2base='c:\Miniconda-x64'
 python3base='c:\Miniconda36-x64'
@@ -22,7 +22,8 @@ fi
 #(cd win32; "$CMAKE" -G "Visual Studio 14" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} ..)
 
 /usr/bin/mkdir -p ${BUILDDIR}
-(cd ${BUILDDIR}; "$CMAKE" -G ${GENERATOR} -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON -DPYTHON3=ON ..)
+echo "$CMAKE" -G "${GENERATOR}" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON -DPYTHON3=ON ..
+(cd ${BUILDDIR}; "$CMAKE" -G "${GENERATOR}" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON -DPYTHON3=ON ..)
 #(cd win64; "$CMAKE" -G "Visual Studio 14 Win64" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON ..)
 
 libpath=`/usr/bin/cygpath -w $PWD/lib`
