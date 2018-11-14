@@ -27,8 +27,8 @@ fi
 #(cd win64; "$CMAKE" -G "Visual Studio 14 Win64" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON ..)
 
 libpath=`/usr/bin/cygpath -w $PWD/lib`
-python2bin='c:\${python2base}\python'
-python3bin='c:\${python3base}\python'
+python2bin='${python2base}\python'
+python3bin='${python3base}\python'
 
 #echo $libpath
 /usr/bin/mkdir -p bin
