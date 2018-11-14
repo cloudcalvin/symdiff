@@ -178,8 +178,9 @@ after_build:
 # to run your custom scripts instead of automatic MSBuild
 # prevent NativeCommandError
 build_script:
-  - IF "%PLATFORM%"=="x64" cd win64 && cmake --build . --config Release -- /m
-  - IF "%PLATFORM%"=="x86" cd win32 && cmake --build . --config Release -- /m
+  - IF "%PLATFORM%"=="x64" cd win64 && cmake --build . --config Release -- /m /nologo /verbosity:minimal
+  - IF "%PLATFORM%"=="x86" cd win32 && cmake --build . --config Release -- /m /nologo /verbosity:minimal
+
 
 # to disable automatic builds
 #build: off
