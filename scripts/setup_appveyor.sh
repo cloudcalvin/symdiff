@@ -58,7 +58,7 @@ libpath=`/usr/bin/cygpath -m $PWD/lib`
 @setlocal
 @echo on
 SET PATH=${python2base};${python2base}\\Library\\bin;%PATH%
-SET TCLLIBPATH="$libpath";%TCLLIBPATH%
+SET TCLLIBPATH="$libpath" %TCLLIBPATH%
 tclsh %*
 EOF
 /usr/bin/chmod +x bin/symdiff_tcl.bat
