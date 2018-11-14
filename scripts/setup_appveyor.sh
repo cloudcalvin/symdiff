@@ -31,11 +31,12 @@ python2bin='${python2base}\python'
 python3bin='${python3base}\python'
 
 #echo $libpath
+# TODO: fix to use conda activate
 /usr/bin/mkdir -p bin
 /usr/bin/cat << EOF > bin/symdiff.bat
 @setlocal
-@echo on
-SET PATH=c:\\${python2base};c:\\${python2base}\\Library\\bin;%PATH%
+@echo off
+SET PATH=${python2base};${python2base}\\Library\\bin;%PATH%
 SET PYTHONPATH=$libpath
 $python2bin %*
 EOF
@@ -43,8 +44,8 @@ EOF
 
 /usr/bin/cat << EOF > bin/symdiff_py3.bat
 @setlocal
-@echo on
-SET PATH=c:\\${python3base};c:\\${python3base}\\Library\\bin;%PATH%
+@echo off
+SET PATH=${python3base};${python3base}\\Library\\bin;%PATH%
 SET PYTHONIOENCODING=utf-8
 SET PYTHONPATH=$libpath
 $python3bin %*
@@ -56,7 +57,7 @@ libpath=`/usr/bin/cygpath -m $PWD/lib`
 /usr/bin/cat << EOF > bin/symdiff_tcl.bat
 @setlocal
 @echo on
-SET PATH=c:\\${python2base};c:\\${python2base}\\Library\\bin;%PATH%
+SET PATH=${python2base};${python2base}\\Library\\bin;%PATH%
 SET TCLLIBPATH="$libpath";%TCLLIBPATH%
 tclsh %*
 EOF
