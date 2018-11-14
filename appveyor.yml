@@ -76,8 +76,8 @@ clone_depth: 5                      # clone entire repository history if not def
 #      secure: $#(JFDA)jQ@#$
 
 # this is how to allow failing jobs in the matrix
+#fast_finish: true     # set this flag to immediately finish build once one of the jobs fails.
 matrix:
-  fast_finish: true     # set this flag to immediately finish build once one of the jobs fails.
   allow_failures:
     - platform: x64
       configuration: Release
@@ -141,8 +141,8 @@ install:
 
 # to add several platforms to build matrix:
 platform:
-  - x86
   - x64
+  - x86
 
 # build Configuration, i.e. Debug, Release, etc.
 configuration: Release
