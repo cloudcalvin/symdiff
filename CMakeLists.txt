@@ -1,4 +1,4 @@
-PROJECT (SYMDIFF)
+PROJECT (SYMDIFF LANGUAGES CXX)
 
 OPTION(TCLMAIN      "Build with TCL Interpreter" ON)
 #Python 2 version is always build
