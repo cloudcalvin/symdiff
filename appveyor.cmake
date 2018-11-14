@@ -31,7 +31,7 @@ SET (PYTHON_INCLUDE ${MINICONDA2}/include)
 SET (PYTHON3_ARCHIVE ${MINICONDA3}/libs/python36.lib)
 SET (PYTHON3_INCLUDE ${MINICONDA3}/include)
 
-SET (PERL "${MINICONDA2}/perl")
+SET (PERL "${MINICONDA2}/Library/bin/perl.exe")
 SET (FLEX  "C:/cygwin/bin/flex.exe")
 SET (BISON "C:/cygwin/bin/bison.exe")
 SET (DIFF "C:/cygwin/bin/diff.exe")
