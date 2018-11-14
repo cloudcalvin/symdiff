@@ -5,13 +5,13 @@
 CMAKE=/cygdrive/C/Program\ Files\ \(x86\)/CMake/bin/cmake.exe
 SYMDIFF_CONFIG="appveyor"
 
-if [ "$1" = x86] then
+if [ "$1" = x86 ]; then
 GENERATOR="Visual Studio 15 2017"
 BUILDDIR="win32"
 python2base='c:\Miniconda'
 python3base='c:\Miniconda36'
 fi
-if [ "$1" = x64] then
+if [ "$1" = x64 ]; then
 GENERATOR="Visual Studio 15 2017 Win64"
 BUILDDIR="win64"
 python2base='c:\Miniconda-x64'
