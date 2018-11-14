@@ -27,28 +27,28 @@ fi
 #(cd win64; "$CMAKE" -G "Visual Studio 14 Win64" -DSYMDIFF_CONFIG=${SYMDIFF_CONFIG} -DTCLMAIN=ON ..)
 
 libpath=`/usr/bin/cygpath -w $PWD/lib`
-python2bin="${python2base}\\python"
-python3bin="${python3base}\\python"
+#python2bin="${python2base}\\python"
+#python3bin="${python3base}\\python"
 
 #echo $libpath
 # TODO: fix to use conda activate
 /usr/bin/mkdir -p bin
 /usr/bin/cat << EOF > bin/symdiff.bat
 @setlocal
-@echo on
+@echo off
 SET PATH=${python2base};${python2base}\\Library\\bin;%PATH%
 SET PYTHONPATH=$libpath
-$python2bin %*
+python %*
 EOF
 /usr/bin/chmod +x bin/symdiff.bat
 
 /usr/bin/cat << EOF > bin/symdiff_py3.bat
 @setlocal
-@echo on
+@echo off
 SET PATH=${python3base};${python3base}\\Library\\bin;%PATH%
 SET PYTHONIOENCODING=utf-8
 SET PYTHONPATH=$libpath
-$python3bin %*
+python %*
 EOF
 /usr/bin/chmod +x bin/symdiff_py3.bat
 
@@ -56,7 +56,7 @@ EOF
 libpath=`/usr/bin/cygpath -m $PWD/lib`
 /usr/bin/cat << EOF > bin/symdiff_tcl.bat
 @setlocal
-@echo on
+@echo off
 SET PATH=${python2base};${python2base}\\Library\\bin;%PATH%
 SET TCLLIBPATH="$libpath" %TCLLIBPATH%
 tclsh %*
