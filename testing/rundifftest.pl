@@ -14,11 +14,9 @@ my $testoutdir = $ARGV[4];
 chdir $testrundir;
 my $command = "$testexe > $testoutdir/$testout 2>&1";
 #print "\n$command\n";
-#unlink($testout);
+unlink($testout);
 my $retval = (system($command)==0) or die "$testexe failed to run";
 
-print "\n$diffcmd\n";
 my $diffcmd = "/usr/bin/diff -w $testoutdir/$testout $goldenresult";
 #my $diffcmd = "/usr/bin/diff -w -q $testoutdir/$testout $goldenresult";
 $retval = (system($diffcmd)==0) or die "$testout differs from $goldenresult";
-
