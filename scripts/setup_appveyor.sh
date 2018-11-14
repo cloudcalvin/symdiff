@@ -34,17 +34,16 @@ python3bin='${python3base}\python'
 /usr/bin/mkdir -p bin
 /usr/bin/cat << EOF > bin/symdiff.bat
 @setlocal
-@echo off
+@echo on
 SET PATH=c:\\${python2base};c:\\${python2base}\\Library\\bin;%PATH%
 SET PYTHONPATH=$libpath
 $python2bin %*
 EOF
 /usr/bin/chmod +x bin/symdiff.bat
 
-python3path='c:\${python3base}\python'
 /usr/bin/cat << EOF > bin/symdiff_py3.bat
 @setlocal
-@echo off
+@echo on
 SET PATH=c:\\${python3base};c:\\${python3base}\\Library\\bin;%PATH%
 SET PYTHONIOENCODING=utf-8
 SET PYTHONPATH=$libpath
@@ -56,9 +55,9 @@ EOF
 libpath=`/usr/bin/cygpath -m $PWD/lib`
 /usr/bin/cat << EOF > bin/symdiff_tcl.bat
 @setlocal
-@echo off
+@echo on
 SET PATH=c:\\${python2base};c:\\${python2base}\\Library\\bin;%PATH%
-SET TCLLIBPATH="$libpath" %TCLLIBPATH%
+SET TCLLIBPATH="$libpath";%TCLLIBPATH%
 tclsh %*
 EOF
 /usr/bin/chmod +x bin/symdiff_tcl.bat
