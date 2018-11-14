@@ -20,3 +20,4 @@ my $retval = (system($command)==0) or die "$testexe failed to run";
 my $diffcmd = "/usr/bin/diff -w $testoutdir/$testout $goldenresult";
 #my $diffcmd = "/usr/bin/diff -w -q $testoutdir/$testout $goldenresult";
 $retval = (system($diffcmd)==0) or die "$testout differs from $goldenresult";
+
